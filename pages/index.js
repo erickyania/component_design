@@ -45,38 +45,25 @@ function SpeakerDemographic({ bio, company, twitterHandle, favorite }) {
     </div>
   );
 }
+
+function Speaker({ speaker }) {
+  const { id, last, first, sessions } = speaker;
+  return (
+    <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-sm-12 col-xs-12">
+      <div className="card card-height p-4 mt-4">
+        <SpeakerImage id={id} first={first} last={last}></SpeakerImage>
+        <SpeakerDemographic {...speaker}></SpeakerDemographic>
+      </div>
+      <Sessions sessions={sessions} />
+    </div>
+  );
+}
 const IndexPage = () => {
   return (
     <div className="container speakers-list">
       <div className="row">
         {data.map(function (speaker) {
-          const {
-            id,
-            bio,
-            first,
-            last,
-            favorite,
-            twitterHandle,
-            company,
-            sessions,
-          } = speaker;
-
-          return (
-            <div
-              key={id}
-              className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-sm-12 col-xs-12"
-            >
-              <div className="card card-height p-4 mt-4">
-                <SpeakerImage
-                  id={id}
-                  first={first}
-                  second={second}
-                ></SpeakerImage>
-                <SpeakerDemographic {...speaker}></SpeakerDemographic>
-              </div>
-              <Sessions sessions={sessions} />
-            </div>
-          );
+          return <Speaker key={speaker.id} speaker={speaker}></Speaker>;
         })}
       </div>
     </div>
