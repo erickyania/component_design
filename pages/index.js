@@ -1,14 +1,8 @@
 import { data } from "../SpeakerData";
-import Speaker from "../src/components/speaker";
+import Speakers from "../src/components/speakers";
 const IndexPage = () => {
   return (
-    <div className="container speakers-list">
-      <div className="row">
-        {data.map(function (speaker) {
-          return <Speaker key={speaker.id} speaker={speaker}></Speaker>;
-        })}
-      </div>
-    </div>
+    <Speakers></Speakers>
   );
 };
 

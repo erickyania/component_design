@@ -14,7 +14,7 @@ function Sessions({ sessions }) {
   );
 }
 
-function SpeakerImage({ id, first, second }) {
+function SpeakerImage({ id, first, last }) {
   return (
     <div className="speaker-img d-flex flex-row justify-content-center align-items-center h-300">
       <img
@@ -27,7 +27,7 @@ function SpeakerImage({ id, first, second }) {
   );
 }
 
-function SpeakerDemographic({ bio, company, twitterHandle, favorite }) {
+function SpeakerDemographic({ bio, first,last,company, twitterHandle, favorite }) {
   return (
     <div className="speaker-info">
       <div className="d-flex justify-content-between mb-3">
@@ -36,9 +36,17 @@ function SpeakerDemographic({ bio, company, twitterHandle, favorite }) {
         </h3>
       </div>
       <div>
-        <p>
-          {bio} {company} {twitterHandle} {favorite}
-        </p>
+        <p className="card-description">{bio}</p>
+        <div className="social d-flex flex-row mt-4">
+          <div className="company">
+            <h5>company</h5>
+            <h6>{company}</h6>
+          </div>
+          <div className="twitter">
+            <h5>twitterHandle</h5>
+            <h6>{twitterHandle}</h6>
+          </div>
+        </div>
       </div>
     </div>
   );
