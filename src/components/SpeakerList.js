@@ -1,10 +1,12 @@
 import Speaker from "./speaker";
 import { data } from "../../SpeakerData";
+import { useState } from "react";
 const SpeakerList = ({ showsession }) => {
+  const [speakerData,setSpeakerData] =useState(data)
   return (
     <div className="container speakers-list">
       <div className="row">
-        {data.map(function (speaker) {
+        {speakerData.map(function (speaker) {
           return (
             <Speaker
               key={speaker.id}

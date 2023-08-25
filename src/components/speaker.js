@@ -27,6 +27,21 @@ function SpeakerImage({ id, first, last }) {
   );
 }
 
+function SpeakerFavorite({ favorite, onFavoriteToggle }) {
+  return (
+    <div className="action padB1">
+      <span onClick={onFavoriteToggle}>
+        <i
+          className={
+            favorite === true ? "fa fa-star orange" : "fa fa-star-o orange"
+          }
+        />{" "}
+        Favorite{" "}
+      </span>
+    </div>
+  );
+}
+
 function SpeakerDemographic({
   bio,
   first,
@@ -42,6 +57,7 @@ function SpeakerDemographic({
           {first} {last}
         </h3>
       </div>
+      <SpeakerFavorite favorite={favorite}></SpeakerFavorite>
       <div>
         <p className="card-description">{bio}</p>
         <div className="social d-flex flex-row mt-4">
