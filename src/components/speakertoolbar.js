@@ -1,8 +1,4 @@
-import { useState } from "react";
-const SpeakerToolbar = ({theme,setTheme}) => {
-  const [showSession, setShowSession] = useState(true);
-  
-
+const SpeakerToolbar = ({ theme, setTheme, setShowSession, showSession }) => {
   return (
     <section className="toolbar dark-theme-header">
       <div className="container">

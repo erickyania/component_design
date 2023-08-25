@@ -27,7 +27,14 @@ function SpeakerImage({ id, first, last }) {
   );
 }
 
-function SpeakerDemographic({ bio, first,last,company, twitterHandle, favorite }) {
+function SpeakerDemographic({
+  bio,
+  first,
+  last,
+  company,
+  twitterHandle,
+  favorite,
+}) {
   return (
     <div className="speaker-info">
       <div className="d-flex justify-content-between mb-3">
@@ -52,7 +59,7 @@ function SpeakerDemographic({ bio, first,last,company, twitterHandle, favorite }
   );
 }
 
-function Speaker({ speaker }) {
+function Speaker({ speaker, showsession }) {
   const { id, last, first, sessions } = speaker;
   return (
     <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-sm-12 col-xs-12">
@@ -60,7 +67,7 @@ function Speaker({ speaker }) {
         <SpeakerImage id={id} first={first} last={last}></SpeakerImage>
         <SpeakerDemographic {...speaker}></SpeakerDemographic>
       </div>
-      <Sessions sessions={sessions} />
+      {showsession === true ? <Sessions sessions={sessions} /> : null}
     </div>
   );
 }
