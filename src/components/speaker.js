@@ -49,6 +49,7 @@ function SpeakerDemographic({
   company,
   twitterHandle,
   favorite,
+  onFavoriteToggle
 }) {
   return (
     <div className="speaker-info">
@@ -57,7 +58,7 @@ function SpeakerDemographic({
           {first} {last}
         </h3>
       </div>
-      <SpeakerFavorite favorite={favorite}></SpeakerFavorite>
+      <SpeakerFavorite favorite={favorite} onFavoriteToggle={onFavoriteToggle}></SpeakerFavorite>
       <div>
         <p className="card-description">{bio}</p>
         <div className="social d-flex flex-row mt-4">
@@ -75,13 +76,13 @@ function SpeakerDemographic({
   );
 }
 
-function Speaker({ speaker, showsession }) {
+function Speaker({ speaker, showsession,onFavoriteToggle }) {
   const { id, last, first, sessions } = speaker;
   return (
     <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-sm-12 col-xs-12">
       <div className="card card-height p-4 mt-4">
-        <SpeakerImage id={id} first={first} last={last}></SpeakerImage>
-        <SpeakerDemographic {...speaker}></SpeakerDemographic>
+        <SpeakerImage id={id} first={first} last={last} ></SpeakerImage>
+        <SpeakerDemographic {...speaker} onFavoriteToggle={onFavoriteToggle}></SpeakerDemographic>
       </div>
       {showsession === true ? <Sessions sessions={sessions} /> : null}
     </div>
